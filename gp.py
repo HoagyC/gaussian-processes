@@ -15,7 +15,10 @@ def draw_gp_priors(num_samples, num_functions, kernel):
 
     for i in range(num_functions):
         plt.plot(xs, ys[i], linestyle='-', marker='o', markersize=3)
-
+    
+    # Latex has a series of small spaces.
+    # In order of increasing size:  \,    \:    \;
+    # There's also a negative space: \!   - rogue!
     plt.xlabel('$sexy\:latex\:x$')
     plt.ylabel('normal y')
     plt.title(f'{num_functions} samples from prior')
@@ -44,6 +47,6 @@ def white_noise(sigma=1):
         return 1 if a == b else 0
     return white_noise_return
 
-
-draw_gp_priors(100, 10, exp_quadratic(0.5))
+if __name__ == "__main__":
+    draw_gp_priors(100, 10, exp_quadratic(0.5))
 
